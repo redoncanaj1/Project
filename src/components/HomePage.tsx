@@ -3,8 +3,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 interface HomePageProps {
   translations: {
-    mainTitle: string;
+    logoText: string;
     subtitle: string;
+    mainTitle: string;
     mainText1: string;
     mainText2: string;
     references: string;
@@ -15,42 +16,90 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ translations: t, isMobile = false }) => {
   return (
-    <Container fluid className="h-100 p-0">
-      <Row className="h-100 g-0">
-        <Col lg={6} className="d-flex order-2 order-lg-1">
-          <div className={`px-4 px-lg-5 py-5 w-100 d-flex align-items-start mt-20 ${isMobile ? 'mobile-content-no-padding' : ''}`}>
-            <div className="main-content w-100 " style={{ paddingTop: isMobile ? '2rem' : '0' }}>
-              <h2 className={`text-danger mb-3 fw-medium ${isMobile ? 'fs-5' : 'fs-4'}`}>
-                {t.subtitle}
-              </h2>
+    <Container fluid className="p-0" style={{ minHeight: '100vh' }}>
+      <Row className="g-0" style={{ minHeight: '100vh' }}>
+        {/* Text Column */}
+        <Col lg={6} className={`order-2 order-lg-1 ${isMobile ? 'px-4 py-3' : 'px-4 px-lg-5 py-4'}`}>
+          {/* Logo Section - Tightened mobile spacing */}
+          <div style={{ 
+            height: isMobile ? '50px' : '80px',
+            display: 'flex',
+            alignItems: 'flex-end',
+            marginBottom: isMobile ? '0.25rem' : '2rem',
+            paddingTop: isMobile ? '0.5rem' : '0'
+          }}>
+            <h1 className="text-dark m-0" style={{ 
+              fontSize: isMobile ? '1.8rem' : '2.5rem',
+              fontWeight: 400,
+              fontFamily: 'Times New Roman, serif',
+              lineHeight: '1.1'
+            }}>
+              {t.logoText}
+            </h1>
+          </div>
+          
+          {/* Content Area - Fixed mobile height calculation */}
+          <div style={{
+            overflow: 'auto',
+            maxHeight: isMobile ? 'auto' : 'calc(100vh - 120px)',
+            paddingRight: isMobile ? '0' : '15px',
+            paddingBottom: isMobile ? '1rem' : '80px',
+            scrollBehavior: 'smooth'
+          }}>
+            {/* Subtitle with no top margin on mobile */}
+            <h2 className={`text-dark ${isMobile ? 'mb-2 mt-0' : 'mb-3'}`} style={{
+              fontSize: isMobile ? '1rem' : '1.25rem',
+              fontWeight: 300,
+              fontFamily: 'Times New Roman, serif',
+              lineHeight: '1.2'
+            }}>
+              {t.subtitle}
+            </h2>
 
-              <h3 className={`fw-bold text-dark mt-4 mb-4 ${isMobile ? 'fs-4' : 'fs-2'}`} style={{ fontFamily:'Times New Roman, serif' }}>
-                {t.mainTitle}
-              </h3>
+            {/* Rest of the content remains unchanged */}
+            <h3 className={`fw-light text-dark mb-4 ${isMobile ? 'fs-5' : 'fs-3'}`} style={{
+              fontFamily: 'Times New Roman, serif',
+              fontWeight: 400
+            }}>
+              {t.mainTitle}
+            </h3>
 
-              <div className={`text-dark lh-lg ${isMobile ? 'fs-6' : 'fs-6'}`}>
-                <p className="mb-4" style={{color:"#696969"}}>{t.mainText1}</p>
-                <p className="mb-0" style={{color:"#696969"}}>
-                  {t.mainText2}{' '}
-                  <a
-                    href="mailto:info@steidl-partner.de?subject=References Request"
-                    className="text-dark fw-medium text-decoration-underline"
-                    style={{ textDecorationColor: 'rgba(0, 0, 0, 0.3)', color:'#696969' }}
-                  >
-                    {t.references}
-                  </a>{' '}
-                  {t.atAnyTime}.
-                </p>
-              </div>
+            <div className={`text-dark lh-base ${isMobile ? 'fs-6' : 'fs-5'}`} style={{
+              fontFamily: 'Arial, sans-serif',
+              fontWeight: 300
+            }}>
+              <p className="mb-3" style={{color:"#696969"}}>{t.mainText1}</p>
+              <p className="mb-4" style={{color:"#696969"}}>
+                {t.mainText2}
+              </p>
+              <p className="mb-0" style={{color:"#696969"}}>
+                {t.atAnyTime}{' '}
+                <a
+                  href="mailto:info@steidl-partner.de?subject=References Request"
+                  className="text-dark text-decoration-underline"
+                  style={{ textDecorationColor: 'rgba(0, 0, 0, 0.3)', color:'#696969' }}
+                >
+                  {t.references}
+                </a>.
+              </p>
             </div>
           </div>
         </Col>
-        <Col lg={6} className="p-0 order-1 order-lg-2">
-          <div className="h-100 d-flex align-items-center justify-content-center bg-light">
-<img src="https://steidl-partner.de/wp-content/themes/steidl/img/steidl-home-big.jpg"
+
+        {/* Image Column - Fixed mobile height */}
+        <Col lg={6} className={`p-0 order-1 order-lg-2`}>
+          <div style={{ 
+            height: isMobile ? '50vh' : '100vh',
+            overflow: 'hidden'
+          }}>
+            <img
+              src="https://steidl-partner.de/wp-content/themes/steidl/img/steidl-home-big.jpg"
               alt="Martin Steidl"
               className="w-100 h-100"
-              style={{ objectFit: 'cover', minHeight: isMobile ? '300px' : '400px' }}
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
             />
           </div>
         </Col>
