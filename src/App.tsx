@@ -107,7 +107,7 @@ const App: React.FC = () => {
   };
 
   const renderMobileLayout = () => (
-    <div className="mobile-layout" style={{ paddingBottom: '80px' }}>
+    <div className="mobile-layout">
       <StaticLogo isMobile={isMobile} />
       <div className="mobile-pages" style={{ paddingTop: '140px' }}>
         <div className="mobile-page" id="home">

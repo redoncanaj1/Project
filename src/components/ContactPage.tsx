@@ -63,7 +63,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ translations: t, isMobile }) 
                 <img
                   src="https://steidl-partner.de/wp-content/themes/steidl/img/steidl-kontakt-big.jpg"
                   alt="Martin Steidl"
-                  className="w-100 h-100"
+                  className="h-[100vh] w-100"
                   style={{ objectFit: 'cover' }}
                 />
               </div>
