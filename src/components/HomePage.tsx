@@ -43,11 +43,7 @@ const HomePage: React.FC<HomePageProps> = ({ translations: t, isMobile = false }
             overflow: 'auto',
             maxHeight: isMobile ? 'auto' : 'calc(100vh - 120px)',
             paddingRight: isMobile ? '0' : '15px',
-<<<<<<< HEAD
             paddingBottom: isMobile ? '1.25rem' : '90px',
-=======
-            paddingBottom: isMobile ? '1rem' : '80px',
->>>>>>> 99ef18f145859381f9e828a56da3cdef769dcf81
             scrollBehavior: 'smooth'
           }}>
             {/* Subtitle with no top margin on mobile */}
@@ -92,22 +88,15 @@ const HomePage: React.FC<HomePageProps> = ({ translations: t, isMobile = false }
 
         {/* Image Column - Fixed mobile height */}
         <Col lg={6} className={`p-0 order-1 order-lg-2`}>
-<<<<<<< HEAD
-          <div style={{
-=======
+
           <div style={{ 
             height: isMobile ? '50vh' : '100vh',
->>>>>>> 99ef18f145859381f9e828a56da3cdef769dcf81
             overflow: 'hidden'
           }}>
             <img
               src="https://steidl-partner.de/wp-content/themes/steidl/img/steidl-home-big.jpg"
               alt="Martin Steidl"
-<<<<<<< HEAD
               className="h-[100vh] w-100"
-=======
-              className="w-100 h-100"
->>>>>>> 99ef18f145859381f9e828a56da3cdef769dcf81
               style={{
                 objectFit: 'cover',
                 objectPosition: 'center'
