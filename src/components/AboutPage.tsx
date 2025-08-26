@@ -16,11 +16,11 @@ interface AboutPageProps {
 
 const AboutPage: React.FC<AboutPageProps> = ({ translations: t, isMobile = false }) => {
   return (
-    <Container fluid className="p-0" style={{ minHeight: '100vh' }}>
-      <Row className="g-0" style={{ minHeight: '100vh' }}>
-        {/* Image Column - Now properly sized */}
-        <Col lg={4} className={`d-flex order-2 order-lg-1 ${isMobile ? 'px-0' : 'px-0'}`}>
-          <div className={`w-100 h-100 d-flex align-items-center justify-content-center lg:px-4 ${isMobile ? 'about-mobile-image' : ''}`} 
+    <div className="position-relative" style={{ height: '100vh', overflow: 'hidden' }}>
+      <Container fluid className="h-100 p-0">
+        <Row className="h-100 g-0">
+          <Col lg={4} className="d-flex align-items-start justify-content-center p-0 order-2 order-lg-1">
+            <div className={`w-100 h-100 d-flex align-items-center justify-content-center px-4 ${isMobile ? 'about-mobile-image' : ''}`} 
                  style={{ 
                    paddingTop: isMobile ? '20px' : '140px', 
                    paddingBottom: isMobile ? '20px' : '100px' 
@@ -66,9 +66,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ translations: t, isMobile = false
               </p>
             </div>
           </div>
+          
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 
